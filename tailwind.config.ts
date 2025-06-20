@@ -36,6 +36,14 @@ export default {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
+                success: { // New success color
+                    DEFAULT: 'hsl(var(--success))',
+                    foreground: 'hsl(var(--success-foreground))'
+                },
+                warning: { // New warning color
+                    DEFAULT: 'hsl(var(--warning))',
+                    foreground: 'hsl(var(--warning-foreground))'
+                },
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
@@ -64,10 +72,13 @@ export default {
 				}
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: 'var(--radius)', // Will now be 6px
+				md: 'calc(var(--radius) - 2px)', // Will now be 4px
+				sm: 'calc(var(--radius) - 4px)' // Will now be 2px
 			},
+            fontFamily: { // New font family definition
+                sans: 'var(--font-sans)',
+            },
 			keyframes: {
 				'accordion-down': {
 					from: {
