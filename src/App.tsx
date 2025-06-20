@@ -10,6 +10,7 @@ import DashboardPage from "./pages/DashboardPage";
 import ResourceCatalogPage from "./pages/ResourceCatalogPage";
 import ResourceDetailPage from "./pages/ResourceDetailPage";
 import ResourceListPage from "./pages/ResourceListPage";
+import ProfilePage from "./pages/ProfilePage"; // Import the new ProfilePage
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/resource-catalog" element={<ResourceCatalogPage />} />
           <Route path="/resource-detail" element={<ResourceDetailPage />} />
           <Route path="/resource-list" element={<ResourceListPage />} />
+          <Route path="/account-settings" element={<ProfilePage />} /> {/* Add route for ProfilePage */}
           {/* catch-all */}
           <Route path="*" element={<NotFound />} />
 
