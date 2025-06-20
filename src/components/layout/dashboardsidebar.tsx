@@ -34,63 +34,6 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ className }) => {
 
   return (
     <aside className={`hidden border-r bg-muted/40 md:block ${className}`}>
-      <div className="flex h-full max-h-screen flex-col gap-2 sticky top-16"> {/* Assuming header height is 16 (4rem) */}
-        <div className="flex-1 overflow-auto py-2">
-          <nav className="grid items-start px-4 text-sm font-medium">
-            <div className="p-2">
-              <Button asChild className="w-full justify-start">
-                <Link to="/create-resource">
-                  <PlusCircle className="mr-2 h-4 w-4" />
-                  Create Resource
-                </Link>
-              </Button>
-            </div>
-
-            <Separator className="my-2" />
-            
-            <NavLink
-                to="/"
-                className={navLinkClasses}
-                end // Ensure exact match for dashboard
-              >
-                <LayoutDashboard className="h-4 w-4" />
-                Dashboard
-            </NavLink>
-
-
-            <p className="px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-2">
-              Service Categories
-            </p>
-            {adjustedServiceCategories.map((item) => (
-              <NavLink
-                key={item.name}
-                // to={`${item.href}?category=${item.query}`} // This would be ideal if page supported it
-                to={item.href} // Simplified to match App.tsx more directly
-                className={({ isActive }) => 
-                  navLinkClasses({ isActive: isActive && window.location.search.includes(`category=${item.query}`) })
-                  // A more robust active state for query params would require more complex logic or library support
-                  // For now, it will highlight if /resource-catalog is active.
-                }
-              >
-                <item.icon className="h-4 w-4" />
-                {item.name}
-              </NavLink>
-            ))}
-            
-            <Separator className="my-2" />
-
-            <NavLink
-              to="/settings" // Placeholder route
-              className={navLinkClasses}
-            >
-              <SettingsIcon className="h-4 w-4" />
-              Settings
-            </NavLink>
-          </nav>
-        </div>
-      </div>
-    </aside>
-  );
-};
-
-export default DashboardSidebar;
+      <div className=\"flex h-full max-h-screen flex-col gap-2 sticky top-16\"> {/* Assuming header height is 16 (4rem) */}
+        <div className=\"flex-1 overflow-auto py-2\">\n          <nav className=\"grid items-start px-4 text-sm font-medium\">\n            <div className=\"p-2\">\n              <Button asChild className=\"w-full justify-start\">\n                <Link to=\"/create-resource\">\n                  <PlusCircle className=\"mr-2 h-4 w-4\" />\n                  Create Resource\n                </Link>\n              </Button>\n            </div>\n\n            <Separator className=\"my-2\" />\n            \n            <NavLink
+                to=\"/\"\n                className={navLinkClasses}\n                end // Ensure exact match for dashboard\n              >\n                <LayoutDashboard className=\"h-4 w-4\" />\n                Dashboard\n            </NavLink>\n\n\n            <p className=\"px-3 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider mt-2\">\n              Service Categories\n            </p>\n            {adjustedServiceCategories.map((item) => (\n              <NavLink\n                key={item.name}\n                // to={`${item.href}?category=${item.query}`} // This would be ideal if page supported it\n                to={item.href} // Simplified to match App.tsx more directly\n                className={({ isActive }) => \n                  navLinkClasses({ isActive: isActive && window.location.search.includes(`category=${item.query}`) })\n                  // A more robust active state for query params would require more complex logic or library support\n                  // For now, it will highlight if /resource-catalog is active.\n                }\n              >\n                <item.icon className=\"h-4 w-4\" />\n                {item.name}\n              </NavLink>\n            ))}\n            \n            <Separator className=\"my-2\" />\n\n            <NavLink\n              to=\"/account-settings\" // Updated to point to the existing ProfilePage route\n              className={navLinkClasses}\n            >\n              <SettingsIcon className=\"h-4 w-4\" />\n              Settings\n            </NavLink>\n          </nav>\n        </div>\n      </div>\n    </aside>\n  );\n};\n\nexport default DashboardSidebar;
